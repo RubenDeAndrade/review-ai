@@ -1,0 +1,33 @@
+{
+  "terminal.integrated.env.osx": {
+    "REVIEW_INSTRUCTIONS_PATH": "${workspaceFolder}/.github/instructions/github-review.instructions.md",
+    "REVIEW_TEMP_DIR": "/tmp/copilot-review",
+    "COPILOT_MODEL": "gpt-4o",
+    "REVIEW_VERBOSITY": "normal",
+    "REVIEW_STYLE": "detailed"
+  },
+  "terminal.integrated.env.linux": {
+    "REVIEW_INSTRUCTIONS_PATH": "${workspaceFolder}/.github/instructions/github-review.instructions.md",
+    "REVIEW_TEMP_DIR": "/tmp/copilot-review",
+    "COPILOT_MODEL": "gpt-4o",
+    "REVIEW_VERBOSITY": "normal",
+    "REVIEW_STYLE": "detailed"
+  },
+  "terminal.integrated.env.windows": {
+    "REVIEW_INSTRUCTIONS_PATH": "${workspaceFolder}\\.github\\instructions\\github-review.instructions.md",
+    "REVIEW_TEMP_DIR": "%TEMP%\\copilot-review",
+    "COPILOT_MODEL": "gpt-4o",
+    "REVIEW_VERBOSITY": "normal",
+    "REVIEW_STYLE": "detailed"
+  },
+  "[shellscript]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4
+  },
+  "files.associations": {
+    "*.sh": "shellscript"
+  },
+  "shellcheck.enable": true,
+  "shellcheck.useWorkspaceRootAsCwd": true,
+  "shellcheck.run": "onSave"
+}
