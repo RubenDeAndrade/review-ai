@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run PR Review",
+      "type": "shell",
+      "command": "${workspaceFolder}/automated-review.sh",
+      "args": ["${input:prNumber}"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Review Current Branch PR",
+      "type": "shell",
+      "command": "${workspaceFolder}/automated-review.sh",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Review PR with Detailed Feedback",
+      "type": "shell",
+      "command": "${workspaceFolder}/automated-review.sh",
+      "args": ["${input:prNumber}"],
+      "options": {
+        "env": {
+          "REVIEW_VERBOSITY": "detailed",
+          "REVIEW_STYLE": "detailed"
+        }
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "prNumber",
+      "type": "promptString",
+      "description": "Enter the PR number to review:",
+      "default": ""
+    }
+  ]
+}

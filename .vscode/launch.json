@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Automated Review Script",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["${workspaceFolder}/automated-review.sh"],
+      "args": ["${input:prNumber}"],
+      "env": {
+        "REVIEW_INSTRUCTIONS_PATH": "${workspaceFolder}/.github/instructions/github-review.instructions.md",
+        "REVIEW_TEMP_DIR": "/tmp/copilot-review",
+        "COPILOT_MODEL": "gpt-4o",
+        "REVIEW_VERBOSITY": "detailed",
+        "REVIEW_STYLE": "detailed"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "debugpy",
+      "request": "launch",
+      "name": "Debug Python Review Script",
+      "program": "${workspaceFolder}/review_pr.py",
+      "args": [],
+      "env": {
+        "OPENAI_API_KEY": "${env:OPENAI_API_KEY}"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "prNumber",
+      "type": "promptString",
+      "description": "Enter the PR number to review:",
+      "default": ""
+    }
+  ]
+}
